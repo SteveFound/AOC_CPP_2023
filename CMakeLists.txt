@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.18.0)
+
+project(AOC-2023 VERSION 0.1.0 LANGUAGES C CXX)
+
+SET(VS_COVERAGE_COMPILE_FLAGS "/std:c++17 /Ox")
+SET(VS_COVERAGE_LINK_FLAGS    "")
+
+SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${VS_COVERAGE_COMPILE_FLAGS}")
+SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${VS_COVERAGE_LINK_FLAGS}")
+
+include(CTest)
+enable_testing()
+
+add_executable(day1 day1.cpp util/file_loader.cpp)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
